@@ -4,10 +4,8 @@ import dotenv from "dotenv";
 const app: Application = express();
 dotenv.config();
 
-const PORT = process.env.PORT;
-console.log(PORT)
 app.get('/',(req: Request,res: Response) => {
-    res.end("hello node Typescript");
+    res.end("hello node Typescript & ORM sequlize cli");
 })
 
-app.listen(PORT,()=>console.log(`app is runnng at 'http://localhost:${PORT}'`));
+app.listen(process.env.PORT,()=>console.log(`app is runnng at 'http://localhost:${process.env.PORT}'`));
