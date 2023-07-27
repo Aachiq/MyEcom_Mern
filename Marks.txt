@@ -1,0 +1,9 @@
+#111# in Order Table : no need to put the price beacuse it's exist in Product Table 
+and we have already the Forign Key "productId" in "Order"
+
+# the quantity yes we need it but that's of the client not that we have in Stock.
+so [quantity_stock # qunatity_order]
+
+#222# User Managment: User | Admin 
+# addUser + Crud_management.
+ 
