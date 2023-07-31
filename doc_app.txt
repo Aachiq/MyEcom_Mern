@@ -1,0 +1,46 @@
+==============> API is Routes <==============
+# USER ROUTES :
+    router.get('/:userId', requireSignIn, isAuth, getOneUser)
+    router.put('/:userId', requireSignIn, isAuth, updateOneUser)
+    router.param('userId', userById)
+
+# AUTH ROUTES :
+    router.post('/signup', userSignUpValidator, signup)
+    router.post('/signin', signin)
+    router.get('/signout', signout)
+
+# PRODUCT ROUTES :
+    router.get('/', allProducts);
+    router.get('/:productId', showProduct);
+
+    router.post('/search', SearchProduct);
+    router.get('/photo/:productId', photoProduct);
+    // admin routes
+    router.post('/create/:userId', [requireSignIn, isAuth, isAdmin], createProduct);
+    router.put('/:productId/:userId', [requireSignIn, isAuth, isAdmin], updateProduct)
+    router.delete('/:productId/:userId', [requireSignIn, isAuth, isAdmin], removeProduct)
+    // middelware routes
+    router.param('userId', userById)
+    router.param('productId', productById)
+
+# CATEGORY ROUTES :
+    router.get('/', allCategories);
+    router.get('/:categoryId', showCategory);
+    // admin routes
+    router.post('/create/:userId', [requireSignIn, isAuth, isAdmin], createCategory);
+    router.put('/:categoryId/:userId', [requireSignIn, isAuth, isAdmin], updateCategory);
+    router.delete('/:categoryId/:userId', [requireSignIn, isAuth, isAdmin], deleteCategory);
+    // middleware routes
+    router.param('userId', userById)
+    router.param('categoryId', categoryId);
+
+// my added routes from my db_conception :
+# OREDR ROUTES :
+    router.get("/", getAllOrders)
+    router.post("/add", addOrder)
+    router.delete("/:id", deleteOrder)
+    router.put("/:id", updateOrderStatus)
+# Payment ROUTES :
+    router.get("/:id", generateToken)
+    router.post("/pay", paymentProcess)
+
